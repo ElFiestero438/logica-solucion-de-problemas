@@ -1,109 +1,120 @@
-# 🏦 AppBank — Sistema Bancario con Spring Boot
+# 🏦 Proyecto Lógica - Solución de Problemas (API Bancaria)
 
-## 📋 Descripción del Proyecto
-**AppBank** es una aplicación desarrollada con **Spring Boot** que simula un sistema bancario básico.  
-Permite **gestionar clientes, cuentas y transacciones**, además de realizar **depósitos, retiros, transferencias** y **aplicar intereses**.  
+Este proyecto consiste en una **API REST de un sistema bancario**, desarrollada en **Java Spring Boot**, con el objetivo de aplicar principios de **programación orientada a objetos**, **buenas prácticas**, y **gestión de servicios RESTful**.  
 
-El proyecto incluye:
-- Exposición de **endpoints REST**.
-- **Documentación interactiva con Swagger UI**.
-- **Colección de pruebas con Postman (Thunder Client)** para validar el correcto funcionamiento de los endpoints.
+El proyecto simula operaciones bancarias básicas como la creación de clientes, apertura de cuentas y manejo de transacciones.
 
 ---
 
-## ⚙️ Tecnologías Utilizadas
+## 🚀 Tecnologías utilizadas
 
-| Tecnología | Descripción |
-|-------------|-------------|
-| **Java 21** | Lenguaje principal del proyecto |
-| **Spring Boot 3.5.7** | Framework backend |
-| **Maven** | Sistema de gestión de dependencias |
-| **Spring Web** | Para construir y exponer las APIs REST |
-| **Spring Validation** | Validación de datos de entrada |
-| **Springdoc OpenAPI (Swagger UI)** | Documentación y pruebas de los endpoints |
-| **Thunder Client (VS Code)** | Pruebas y validación de los endpoints REST |
-| **JUnit 5** | (Opcional) Pruebas unitarias |
+- **Java 17**
+- **Spring Boot**
+- **Swagger UI**
+- **Thunder Client / Postman** (para pruebas)
+- **Maven**
+- **JSON**
 
 ---
 
-## 🚀 Cómo Ejecutar el Proyecto
+## ⚙️ Funcionalidades principales
 
-1. Clona el repositorio:
+### 👤 Módulo de Clientes (`/api/bank/customers`)
+- **POST** → Crear un nuevo cliente  
+- **GET** → Obtener todos los clientes  
+- **GET** `/api/bank/customers/{id}` → Obtener un cliente por su ID  
+
+📸 Ejemplo de creación y consulta de clientes en **Thunder Client**:
+
+![Crear cliente](./Customers.png)
+![Consultar cliente](./Crear%20cuenta.png)
+
+---
+
+### 💰 Módulo de Cuentas (`/api/bank/accounts`)
+- **POST** `/api/bank/customers/{customerId}/accounts` → Crear una nueva cuenta para un cliente  
+- **GET** `/api/bank/accounts/{accountId}` → Consultar los detalles de una cuenta  
+
+📸 Ejemplo de creación y consulta de cuentas:
+
+![Crear cuenta](./Crear%20cuenta.png)
+
+---
+
+### 💳 Operaciones Bancarias
+- **POST** `/api/bank/accounts/{accountId}/deposit` → Realizar un depósito  
+- **POST** `/api/bank/accounts/{accountId}/withdraw` → Realizar un retiro  
+
+📸 Ejemplo en Swagger UI:
+
+![Swagger](./swagger.png)
+![Swagger 2](./swagger2.png)
+![Swagger 3](./swagger3.png)
+![Swagger 4](./swagger4.png)
+
+---
+
+## 📘 Documentación con Swagger UI
+
+El proyecto incluye documentación generada automáticamente con **Swagger UI**.  
+Para acceder a ella, una vez que el servidor está corriendo, entra a:
+
+http://localhost:8080/swagger-ui/index.html
+
+yaml
+Copiar código
+
+---
+
+## 🧪 Ejemplo de flujo completo
+
+1. Crear un cliente con un `POST /api/bank/customers`
+2. Crear una cuenta asociada con `POST /api/bank/customers/{id}/accounts`
+3. Consultar la cuenta con `GET /api/bank/accounts/{accountId}`
+4. Realizar depósitos o retiros con los endpoints `/deposit` y `/withdraw`
+
+---
+
+## 📂 Estructura del proyecto
+
+src/
+├── main/
+│ ├── java/
+│ │ └── com.bank/
+│ │ ├── controller/
+│ │ ├── model/
+│ │ ├── service/
+│ │ └── BankApplication.java
+│ └── resources/
+│ ├── application.properties
+│ └── static/
+└── test/
+
+yaml
+Copiar código
+
+---
+
+## 🧑‍💻 Autor
+
+**Sebastián Orrego Lopera**  
+[Repositorio en GitHub](https://github.com/ElFiestero438/logica-solucion-de-problemas)
+
+---
+
+## 🏁 Ejecución del proyecto
+
+1. Clonar el repositorio:
    ```bash
-   git clone https://github.com/tu-usuario/appbank.git
-Entra en el directorio del proyecto:
+   git clone https://github.com/ElFiestero438/logica-solucion-de-problemas.git
+Abrir el proyecto en IntelliJ IDEA o VS Code
 
-bash
+Ejecutar la clase principal BankApplication
+
+Acceder al servidor en:
+
+arduino
 Copiar código
-cd appbank
-Ejecuta la aplicación:
-
-bash
-Copiar código
-mvn spring-boot:run
-Abre tu navegador y visita:
-
-bash
-Copiar código
-http://localhost:8080/swagger-ui.html
-📚 Endpoints Principales
-Módulo	Método	Endpoint	Descripción
-Clientes	POST	/api/bank/customers	Crear un nuevo cliente
-GET	/api/bank/customers	Listar todos los clientes
-GET	/api/bank/customers/{customerId}	Consultar cliente por ID
-Cuentas	POST	/api/bank/customers/{customerId}/accounts	Crear cuenta asociada a un cliente
-GET	/api/bank/accounts/{accountId}	Consultar cuenta por ID
-GET	/api/bank/customers/{customerId}/accounts	Listar cuentas de un cliente
-Transacciones	POST	/api/bank/accounts/{accountId}/deposit	Depositar en una cuenta
-POST	/api/bank/accounts/{accountId}/withdraw	Retirar de una cuenta
-POST	/api/bank/accounts/{fromAccountId}/transfer	Transferir entre cuentas
-GET	/api/bank/accounts/{accountId}/transactions	Consultar transacciones
-Intereses	POST	/api/bank/accounts/{accountId}/apply-interest	Aplicar intereses
-
-🧭 Documentación con Swagger
-La documentación interactiva de la API está disponible en:
-
-bash
-Copiar código
-http://localhost:8080/swagger-ui.html
-📸 Capturas de Swagger
-
-
-	
-
-🧪 Pruebas con Thunder Client (Postman)
-Todas las pruebas se realizaron usando la extensión Thunder Client en Visual Studio Code.
-
-📸 Capturas de Thunder Client
-Captura	Descripción	Imagen
-1️⃣	Crear Cliente (POST /customers)	
-2️⃣	Crear Cuenta (POST /accounts)	
-3️⃣	Depósito (POST /deposit)	
-4️⃣	Retiro (POST /withdraw)	
-5️⃣	Transferencia (POST /transfer)	
-
-🧩 Estructura del Proyecto
-css
-Copiar código
-appbank/
-├── src/
-│   ├── main/java/com/logsoluprobl/appbank/
-│   │   ├── controller/       → Controladores REST
-│   │   ├── model/            → Entidades principales (Customer, Account, etc.)
-│   │   ├── service/          → Lógica de negocio
-│   │   └── exception/        → Manejo de excepciones
-│   └── resources/
-│       └── application.properties
-├── docs/                     → Capturas Swagger y Thunder Client
-├── pom.xml                   → Dependencias Maven
-└── README.md
-🧠 Autor
-👤 Sebas Orrego Lopera
-Desarrollador Java | Spring Boot | REST APIs
-
-📧 [Tu correo o portafolio opcional]
-
-🏁 Notas Finales
-✔️ Todos los endpoints fueron testeados en Swagger y Thunder Client
-✔️ El proyecto está listo para ejecución y evaluación
-✔️ Capturas disponibles en la carpeta docs/
+http://localhost:8080
+📸 Resultados finales
+El sistema fue probado exitosamente con Thunder Client y Swagger UI, mostrando respuestas correctas para todas las operaciones REST definidas.
