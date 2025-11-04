@@ -1,120 +1,34 @@
-# 🏦 Proyecto Lógica - Solución de Problemas (API Bancaria)
+# README
 
-Este proyecto consiste en una **API REST de un sistema bancario**, desarrollada en **Java Spring Boot**, con el objetivo de aplicar principios de **programación orientada a objetos**, **buenas prácticas**, y **gestión de servicios RESTful**.  
+Este repositorio contiene ejercicios de lógica y solución de problemas. Incluye prácticas básicas, ejemplos y actividades para desarrollar el pensamiento lógico mediante programación y análisis de algoritmos.
 
-El proyecto simula operaciones bancarias básicas como la creación de clientes, apertura de cuentas y manejo de transacciones.
+## Contenido
 
----
+Este proyecto está organizado en múltiples carpetas que contienen ejercicios prácticos de lógica y solución de problemas. Cada sección incluye enunciados, soluciones y, en algunos casos, explicaciones paso a paso.
 
-## 🚀 Tecnologías utilizadas
+### Secciones principales
 
-- **Java 17**
-- **Spring Boot**
-- **Swagger UI**
-- **Thunder Client / Postman** (para pruebas)
-- **Maven**
-- **JSON**
+* **Ejercicios básicos**: Problemas introductorios para familiarizarse con el pensamiento lógico.
+* **Condicionales y ciclos**: Actividades enfocadas en estructuras de control.
+* **Arreglos y manejo de datos**: Ejercicios para trabajar con colecciones y transformaciones.
+* **Algoritmos clásicos**: Problemas que aplican estructuras como búsqueda, ordenamiento o recursividad.
+* **Retos adicionales**: Problemas de mayor dificultad para profundizar en la lógica.
 
----
+## Requisitos
 
-## ⚙️ Funcionalidades principales
+* Editor de texto o IDE
+* Conocimientos básicos de programación
 
-### 👤 Módulo de Clientes (`/api/bank/customers`)
-- **POST** → Crear un nuevo cliente  
-- **GET** → Obtener todos los clientes  
-- **GET** `/api/bank/customers/{id}` → Obtener un cliente por su ID  
+## Cómo usar este repositorio
 
-📸 Ejemplo de creación y consulta de clientes en **Thunder Client**:
+1. Clona el proyecto:
 
-![Crear cliente](./Customers.png)
-![Consultar cliente](./Crear%20cuenta.png)
-
----
-
-### 💰 Módulo de Cuentas (`/api/bank/accounts`)
-- **POST** `/api/bank/customers/{customerId}/accounts` → Crear una nueva cuenta para un cliente  
-- **GET** `/api/bank/accounts/{accountId}` → Consultar los detalles de una cuenta  
-
-📸 Ejemplo de creación y consulta de cuentas:
-
-![Crear cuenta](./Crear%20cuenta.png)
-
----
-
-### 💳 Operaciones Bancarias
-- **POST** `/api/bank/accounts/{accountId}/deposit` → Realizar un depósito  
-- **POST** `/api/bank/accounts/{accountId}/withdraw` → Realizar un retiro  
-
-📸 Ejemplo en Swagger UI:
-
-![Swagger](./swagger.png)
-![Swagger 2](./swagger2.png)
-![Swagger 3](./swagger3.png)
-![Swagger 4](./swagger4.png)
-
----
-
-## 📘 Documentación con Swagger UI
-
-El proyecto incluye documentación generada automáticamente con **Swagger UI**.  
-Para acceder a ella, una vez que el servidor está corriendo, entra a:
-
-http://localhost:8080/swagger-ui/index.html
-
-yaml
-Copiar código
-
----
-
-## 🧪 Ejemplo de flujo completo
-
-1. Crear un cliente con un `POST /api/bank/customers`
-2. Crear una cuenta asociada con `POST /api/bank/customers/{id}/accounts`
-3. Consultar la cuenta con `GET /api/bank/accounts/{accountId}`
-4. Realizar depósitos o retiros con los endpoints `/deposit` y `/withdraw`
-
----
-
-## 📂 Estructura del proyecto
-
-src/
-├── main/
-│ ├── java/
-│ │ └── com.bank/
-│ │ ├── controller/
-│ │ ├── model/
-│ │ ├── service/
-│ │ └── BankApplication.java
-│ └── resources/
-│ ├── application.properties
-│ └── static/
-└── test/
-
-yaml
-Copiar código
-
----
-
-## 🧑‍💻 Autor
-
-**Sebastián Orrego Lopera**  
-[Repositorio en GitHub](https://github.com/ElFiestero438/logica-solucion-de-problemas)
-
----
-
-## 🏁 Ejecución del proyecto
-
-1. Clonar el repositorio:
    ```bash
    git clone https://github.com/ElFiestero438/logica-solucion-de-problemas.git
-Abrir el proyecto en IntelliJ IDEA o VS Code
+   ```
+2. Abre las carpetas según el tema que quieras estudiar.
+3. Revisa los ejemplos y practica con los ejercicios.
 
-Ejecutar la clase principal BankApplication
+## Objetivo
 
-Acceder al servidor en:
-
-arduino
-Copiar código
-http://localhost:8080
-📸 Resultados finales
-El sistema fue probado exitosamente con Thunder Client y Swagger UI, mostrando respuestas correctas para todas las operaciones REST definidas.
+Facilitar el estudio de la lógica y la resolución de problemas mediante ejemplos claros y código simple.
